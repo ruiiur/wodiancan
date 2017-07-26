@@ -1,0 +1,60 @@
+ul {
+  width: 100%;
+  height: 150px; }
+  ul li {
+    float: left;
+    list-style: none;
+    height: 100%;
+    width: 200px;
+    border: 2px solid #ccc;
+    text-align: center;
+    position: relative;
+    overflow: hidden; }
+    ul li p {
+      position: absolute;
+      z-index: 3; }
+    ul li span {
+      height: 5px;
+      background: red;
+      display: inline-block;
+      width: 0;
+      transition: width .5s;
+      position: absolute;
+      z-index: 4; }
+    ul li div {
+      width: 200px;
+      height: 150px;
+      transition: all .2s;
+      position: absolute;
+      top: 100%;
+      background: #00b3ee;
+      z-index: 2; }
+    ul li:hover div {
+      top: 0; }
+    ul li:hover span {
+      width: 100%; }
+
+.lunxun {
+  height: 300px;
+  width: 300px;
+  background: #f6f6f6;
+  text-align: center;
+  line-height: 300px;
+  position: relative; }
+  .lunxun span {
+    display: inline-block;
+    width: 100%;
+    height: 4px;
+    background: -webkit-linear-gradient(left top, rgba(13, 179, 0, 0.1), rgba(13, 179, 0, 0.3), #0db300, rgba(13, 179, 0, 0.3), rgba(13, 179, 0, 0.1));
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: top-bottom 3s linear infinite alternate;
+    z-index: 100; }
+@keyframes top-bottom {
+  from {
+    top: 0; }
+  to {
+    top: 100%; } }
+
+/*# sourceMappingURL=app.css.map */

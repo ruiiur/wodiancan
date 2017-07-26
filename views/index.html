@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-controller="selectCtrl">
+<div>所属分类：
+    <select ng-model="selected1" ng-options="m.roleName for m in classification1" ng-change="changeClassification(selected1)">
+        <option value="">-- 请选择 --</option>
+    </select>
+    <select  ng-model="selected2" ng-options="m.roleName for m in classification2">
+        <option value="">-- 请选择 --</option>
+    </select>
+    <div>
+        {{classification2}}
+    </div>
+</div>
+</body>
+<script>
+    var contentList = [
+        { "roleName" : "软件开发", "roleId" : "role1", "children" : [
+            { "roleName" : "软件AAA", "roleId" : "role11", "children" : [] },
+            { "roleName" : "软件BBB", "roleId" : "role12", "children" : []},
+            { "roleName" : "软件CCC", "roleId" : "role12", "children" : []},
+            { "roleName" : "软件DDD", "roleId" : "role12", "children" : []},
+            { "roleName" : "软件EEE", "roleId" : "role12", "children" : []},
+            { "roleName" : "软件FFF", "roleId" : "role12", "children" : []}
+        ]},
+
+        { "roleName" : "硬件开发", "roleId" : "role2", "children" : [
+            { "roleName" : "硬件AAA", "roleId" : "role21", "children" : [] },
+            { "roleName" : "硬件BBB", "roleId" : "role22", "children" : []},
+            { "roleName" : "硬件CCC", "roleId" : "role23", "children" : []},
+            { "roleName" : "硬件DDD", "roleId" : "role24", "children" : []},
+            { "roleName" : "硬件EEE", "roleId" : "role25", "children" : []},
+            { "roleName" : "硬件FFF", "roleId" : "role26", "children" : []}
+        ]},
+
+
+        { "roleName" : "嵌入式开发", "roleId" : "role3", "children" : [
+            { "roleName" : "嵌入式AAA", "roleId" : "role31", "children" : [] },
+            { "roleName" : "嵌入式BBB", "roleId" : "role32", "children" : []},
+            { "roleName" : "嵌入式CCC", "roleId" : "role33", "children" : []},
+            { "roleName" : "嵌入式DDD", "roleId" : "role34", "children" : []},
+            { "roleName" : "嵌入式EEE", "roleId" : "role35", "children" : []},
+            { "roleName" : "嵌入式FFF", "roleId" : "role36", "children" : []}
+        ]}
+    ];
+    var app=angular.module('app',[]);
+    app.controller('selectCtrl',function($scope){
+        $scope.classification1 = contentList;
+        $scope.changeClassification = function (selected1) {
+            $scope.classification2 = selected1.children;
+        };
+    })
+</script>
+</html>
